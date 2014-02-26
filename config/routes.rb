@@ -1,8 +1,14 @@
 DonorRegistry::Application.routes.draw do
-  resources :users
+  devise_for :users
+  # For Devise 
+  # NEED TO CHANGE.
+  devise_scope :user do
+    root :to => "sessions#new"
+  end
 
-  # For Devise, should change.
-  root :to => "home#index"
+  resources :user do
+    resources :donation_type, :path => 'donation'
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
