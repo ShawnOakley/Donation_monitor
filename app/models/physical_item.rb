@@ -1,7 +1,9 @@
 class PhysicalItem < ActiveRecord::Base
 	has_many :donations, :as => :donatable
 
-	attr_accessible :height, 
+	attr_accessible :title, 
+					:description, 
+					:height, 
 					:width,
 					:weight
 

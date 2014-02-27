@@ -1,7 +1,7 @@
 class Experience < ActiveRecord::Base
 	has_many :donations, :as => :donatable
 
-	attr_accessible :latitude, :longitude, :primary_contact_name
+	attr_accessible :title, :description, :latitude, :longitude, :primary_contact_name
 
 	validates_presence_of :latitude, :longitude, :primary_contact_name
 
