@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225174735) do
+ActiveRecord::Schema.define(version: 20140226214145) do
+
+  create_table "donations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "donations_id"
+    t.string   "donations_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "experiences", force: true do |t|
+    t.integer  "latitude"
+    t.integer  "longitude"
+    t.string   "primary_contact_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "physical_items", force: true do |t|
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,5 +54,11 @@ ActiveRecord::Schema.define(version: 20140225174735) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vouchers", force: true do |t|
+    t.datetime "expiration_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

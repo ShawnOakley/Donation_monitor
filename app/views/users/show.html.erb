@@ -1,14 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% @user = User.find_by_id(params[:user]) %>
 
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
+<h1>Welcome, <%= @user.email %></h1>
+<h3>Below are your current donations:</h3>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= button_to new_user_donation_type_path(@user) do %>
+	Add a new donation
+<% end %>
