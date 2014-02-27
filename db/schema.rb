@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20140226214145) do
 
   create_table "donations", force: true do |t|
     t.integer  "user_id"
-    t.integer  "donations_id"
-    t.string   "donations_type"
+    t.integer  "donation_type_id"
+    t.string   "donation_type_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

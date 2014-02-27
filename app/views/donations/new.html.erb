@@ -4,9 +4,11 @@
 
 <input name='authenticity_token' value= '<%= form_authenticity_token %>' type='hidden'>
 
-<select id='donation-select' name='post[donation_type]'>
+<input name='current_user_id' value= '<%= params[:current_user_id] %>' type='hidden'>
+
+<select id='donation-select' name='donation_type'>
 	<option value=''>Choose a donation type</option>
-	<option value='donation'>Voucher</option>
+	<option value='voucher'>Voucher</option>
 	<option value='experience'>Experience</option>
 	<option value='physical_item'>Physical Item</option>
 </select>

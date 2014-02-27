@@ -39,6 +39,8 @@ gem 'binding_of_caller'
 
 gem 'better_errors'
 
+gem 'protected_attributes'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
