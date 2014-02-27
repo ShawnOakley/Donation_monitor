@@ -3,6 +3,27 @@
 <h1>Welcome, <%= @user.email %></h1>
 <h3>Below are your current donations:</h3>
 
+<h4> Voucher Donations </h4>
+<% @user.voucher_donations.each do |voucher| %>
+<div><%= voucher.inspect %></div>
+
+<% end %>
+<br>
+
+<h4> Physical Item Donations </h4>
+<% @user.physical_item_donations.each do |physical_item| %>
+<div><%= physical_item.inspect %></div>
+
+<% end %>
+<br>
+
+<h4> Experience Donations </h4>
+<% @user.experience_donations.each do |experience| %>
+<div><%= experience.inspect %></div>
+
+<% end %>
+<br>
+
 
 <%= link_to new_user_donation_path(:current_user_id => params[:user])  do %>
 	Add a new donation

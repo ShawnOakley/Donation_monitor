@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :donations, :foreign_key => :user_id
 
-  has_many :voucher_donations, :through => :donations, :source => :donatable, :source_type => 'voucher'
-  has_many :experience_donations, :through => :donations, :source => :donatable, :source_type => 'experience'
-  has_many :physical_item_donations, :through => :donations, :source => :dontable, :source_type => 'physicalItem'
+  has_many :voucher_donations, :through => :donations, :source => :donatable, :source_type => 'Voucher'
+  has_many :experience_donations, :through => :donations, :source => :donatable, :source_type => 'Experience'
+  has_many :physical_item_donations, :through => :donations, :source => :donatable, :source_type => 'PhysicalItem'
 
 end

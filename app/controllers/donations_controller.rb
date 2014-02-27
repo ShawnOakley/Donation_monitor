@@ -24,7 +24,7 @@ class DonationsController < ApplicationController
 		@user_id = params[:current_user_id]
 
 		case params[:donation_type]
-		when 'voucher'
+		when 'Voucher'
 			@voucher = Voucher.new(params[:voucher])
 			if @voucher.save
 				save_polymorphic_item(@voucher)	
@@ -32,7 +32,7 @@ class DonationsController < ApplicationController
 				fail
 				# flash error
 			end
-		when 'experience'
+		when 'Experience'
 			@experience = Experience.new(params[:exp])
 			if @experience.save
 				save_polymorphic_item(@experience)
@@ -40,7 +40,7 @@ class DonationsController < ApplicationController
 				fail
 				# flash error
 			end
-		when 'physical_item'
+		when 'Physical Item'
 			@physical_item = PhysicalItem.new(params[:phys])
 			if @physical_item.save
 				save_polymorphic_item(@physical_item)
