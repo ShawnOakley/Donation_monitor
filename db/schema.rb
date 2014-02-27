@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20140226214145) do
   end
 
   create_table "experiences", force: true do |t|
-    t.integer  "latitude"
-    t.integer  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "primary_contact_name"
     t.datetime "created_at"
     t.datetime "updated_at"
