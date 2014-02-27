@@ -1,0 +1,51 @@
+<h4> What kind of donation would you like to create? </h4>
+
+<form id='donation-form'  action= <%= user_donations_path %> method="post">
+
+<input name='authenticity_token' value= '<%= form_authenticity_token %>' type='hidden'>
+
+<select id='donation-select' name='post[donation_type]'>
+	<option value=''>Choose a donation type</option>
+	<option value='donation'>Voucher</option>
+	<option value='experience'>Experience</option>
+	<option value='physical_item'>Physical Item</option>
+</select>
+
+<div id='donation-addtl-info'></div>
+
+
+</form>
+
+<script type='text/javascript'>
+
+var form_null_input = '';
+
+var form_submit = '<input type="submit" value="Create this donation">';
+
+var form_input_expiration_date = 'Expiration Date: <input type="date" name="voucher[expiration_date]"></date>';
+
+var form_input_contact = 'Primary Contact: <input type="text" name="exp[contact]"></input>';
+var form_input_lattitude = 'Lattitude: <input type="number" name="exp[lattitude]"></input>';
+var form_input_longitude = 'Longitude: <input type="number" name="exp[longitude]"></input>';
+
+var form_input_height = 'Height: <input type="number" name="phys[height]"></input>';
+var form_input_width = 'Width: <input type="number" name="phys[width]"></input>';
+var form_input_weight = 'Weight: <input type="number" name="phys[weight]"></input>';
+
+$('#donation-select').change(function(){
+	var selectedOption = $(this).children('option:selected').text();
+
+	if (selectedOption == 'Voucher') {
+		$('#donation-addtl-info').html(form_input_expiration_date + '<br>' + form_submit);
+	} 
+	else if (selectedOption == 'Experience') {
+		$('#donation-addtl-info').html(form_input_contact + '<br>' + form_input_lattitude + '<br>' + form_input_longitude + '<br>' + form_submit);
+	} else if (selectedOption == 'Physical Item') {
+		$('#donation-addtl-info').html(form_input_height + '<br>' + form_input_width + '<br>' + form_input_weight + '<br>' + form_submit);		
+	} else {
+		$('#donation-addtl-info').html(form_null_input);
+	};
+
+});
+
+</script>

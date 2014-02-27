@@ -4,6 +4,6 @@
 <h3>Below are your current donations:</h3>
 
 
-<%= button_to new_user_donation_type_path(@user) do %>
+<%= link_to new_user_donation_path(:current_user_id => params[:user])  do %>
 	Add a new donation
 <% end %>

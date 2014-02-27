@@ -7,7 +7,7 @@ devise_scope :user do
 end
 
   resource :user do
-    resources :donation_type, :path => 'donation'
+    resources :donations, :path => 'donation'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
