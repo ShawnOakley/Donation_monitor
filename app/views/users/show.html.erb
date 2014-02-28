@@ -22,14 +22,15 @@
 
 <h4> Physical Item Donations </h4>
 <ul>
-<% fail %>
-<% @user.physical_item_donations.each do |physical_item| %>
+<% @items = @user.donations.select{ |donation| donation[:donatable_type] == "Physical Item" } %>
+<% @donations = @items.map{ |item| PhysicalItem.find(item[:donatable_id]) }%>
+<% @donations.each do |physical_item| %>
 
 <li class='physical_item-item-show' id='<%=physical_item.id%>'>
-	<h5><%=experience.title%></h5>
-	<text><%=experience.description%></text>
+	<h5><%=physical_item.title%></h5>
+	<text><%=physical_item.description%></text>
 	<br>
-	<text>Created at: <%=experience.created_at %></text>
+	<text>Created at: <%=physical_item.created_at %></text>
 	<br>
 	<%= link_to 'View this donation', user_donation_path(physical_item.id, :type => 'physical_item') %>
 </li>
