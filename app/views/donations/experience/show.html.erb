@@ -1,11 +1,11 @@
 <h1>Experience</h1>
 
 
-<% experience = Donation.find_by_donatable_id(params[:id]).donatable %>
+<% experience = Experience.find(params[:id]) %>
 <% params[:user] = Donation.find_by_donatable_id(params[:id]).user.id %>
 
 
 <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{experience.latitude}%2C#{experience.longitude}" %>
-
+<br>
 
 <%= link_to 'Return to Index', user_path(params) %>

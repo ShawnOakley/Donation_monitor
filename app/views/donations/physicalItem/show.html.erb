@@ -1,8 +1,14 @@
 <h1>Physical Item</h1>
 
 <% params[:type] = 'PhysicalItem' %>
-<% physicalItem = Donation.find_by_donatable_id(params[:id]).donatable %>
+
+<% physicalItem = PhysicalItem.find(params[:id]) %> 
 <% params[:user] = Donation.find_by_donatable_id(params[:id]).user.id %>
 
+<ul> Dimensions:
+<li>Height: <%= physicalItem.height %></li>
+<li>Width: <%= physicalItem.width %></li>
+<li>weight: <%= physicalItem.weight %></li>
+</ul>
 
 <%= link_to 'Return to Index', user_path(params) %>

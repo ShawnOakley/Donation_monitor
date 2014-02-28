@@ -2,6 +2,6 @@
 
 <% voucher = Donation.find_by_donatable_id(params[:id]).donatable %>
 <% params[:user] = Donation.find_by_donatable_id(params[:id]).user.id %>
-
+<h3>Expiration date: <%= voucher.expiration_date %></h3>
 
 <%= link_to 'Return to Index', user_path(params) %>
