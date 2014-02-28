@@ -21,6 +21,9 @@
 <div id='donation-addtl-info'></div>
 
 
+<%= link_to 'Return to Index', user_path(user: params[:current_user_id]) %>
+
+
 </form>
 
 <script type='text/javascript'>
@@ -54,5 +57,6 @@ $('#donation-select').change(function(){
 	};
 
 });
+
 
 </script>
