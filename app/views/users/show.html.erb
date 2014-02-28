@@ -4,24 +4,54 @@
 <h3>Below are your current donations:</h3>
 
 <h4> Voucher Donations </h4>
+<ul>
 <% @user.voucher_donations.each do |voucher| %>
-<div><%= voucher.inspect %></div>
+
+<li class='voucher-item-show' id='<%=voucher.id%>'>
+	<h5><%=voucher.title%></h5>
+	<text><%=voucher.description%></text>
+	<br>
+	<text>Created at: <%=voucher.created_at %></text>
+	<!-- LINK TO SHOW -->
+
+</li>
 
 <% end %>
+</ul>
 <br>
 
 <h4> Physical Item Donations </h4>
+<ul>
 <% @user.physical_item_donations.each do |physical_item| %>
-<div><%= physical_item.inspect %></div>
+
+<li class='physical_item-item-show' id='<%=physical_item.id%>'>
+	<h5><%=experience.title%></h5>
+	<text><%=experience.description%></text>
+	<br>
+	<text>Created at: <%=experience.created_at %></text>
+	<!-- LINK TO SHOW -->
+
+</li>
 
 <% end %>
+</ul>
 <br>
 
 <h4> Experience Donations </h4>
+<ul>
 <% @user.experience_donations.each do |experience| %>
-<div><%= experience.inspect %></div>
+
+<li class='experience-show' id='<%=experience.id%>'>
+	<h5><%=experience.title%></h5>
+	<text><%=experience.description%></text>
+	<br>
+	<text>Created at: <%=experience.created_at %></text>
+	<!-- LINK TO SHOW -->
+
+</li>
 
 <% end %>
+</ul>
 <br>
 
 
