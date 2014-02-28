@@ -42,6 +42,7 @@ gem 'better_errors'
 gem 'protected_attributes'
 gem "geocoder"
 gem 'capybara'
+gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
