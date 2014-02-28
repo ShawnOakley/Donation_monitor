@@ -40,7 +40,9 @@ class DonationsController < ApplicationController
 				fail
 				# flash error
 			end
-		when 'Physical Item'
+		when 'physical_item'
+			params[:donation][:donatable_type] = "Physical Item"
+			params[:donation_type] = "Physical Item"
 			@physical_item = PhysicalItem.new(params[:donation])
 			if @physical_item.save
 				save_polymorphic_item(@physical_item)

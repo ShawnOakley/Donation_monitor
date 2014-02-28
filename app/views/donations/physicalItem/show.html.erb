@@ -1,5 +1,6 @@
 <h1>Physical Item</h1>
 
+<% params[:type] = 'PhysicalItem' %>
 <% physicalItem = Donation.find_by_donatable_id(params[:id]).donatable %>
 <% params[:user] = Donation.find_by_donatable_id(params[:id]).user.id %>
 
