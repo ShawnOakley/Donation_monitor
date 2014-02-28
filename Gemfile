@@ -51,6 +51,7 @@ gem 'protected_attributes'
 gem "geocoder"
 gem 'capybara'
 gem 'rails_12factor'
+gem 'heroku'
 
 
 # Use ActiveModel has_secure_password
