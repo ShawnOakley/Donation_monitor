@@ -2,9 +2,9 @@
 
 <form id='donation-form'  action= <%= user_donations_path %> method="post">
 
-<div>Title: <input name='donation[name]' type='text'></input></div>
+<div>Title: <input name='donation[title]' type='text'></input></div>
 <br>
-<div>Description: <input name='donation[description' type='txtbox'></input></div>
+<div>Description: <input name='donation[description]' type='txtbox'></input></div>
 <br>
 
 <input name='authenticity_token' value= '<%= form_authenticity_token %>' type='hidden'>

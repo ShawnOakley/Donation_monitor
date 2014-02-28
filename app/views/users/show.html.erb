@@ -12,10 +12,10 @@
 	<text><%=voucher.description%></text>
 	<br>
 	<text>Created at: <%=voucher.created_at %></text>
-	<!-- LINK TO SHOW -->
-
+	<br>
+	<%= link_to 'View this donation', user_donation_path(voucher.id, :type => 'voucher') %>
 </li>
-
+<br>
 <% end %>
 </ul>
 <br>
@@ -29,10 +29,10 @@
 	<text><%=experience.description%></text>
 	<br>
 	<text>Created at: <%=experience.created_at %></text>
-	<!-- LINK TO SHOW -->
-
+	<br>
+	<%= link_to 'View this donation', user_donation_path(physical_item.id, :type => 'physical_item') %>
 </li>
-
+<br>
 <% end %>
 </ul>
 <br>
@@ -46,10 +46,10 @@
 	<text><%=experience.description%></text>
 	<br>
 	<text>Created at: <%=experience.created_at %></text>
-	<!-- LINK TO SHOW -->
-
+	<br>
+	<%= link_to 'View this donation', user_donation_path(experience.id, :type => 'experience') %>
 </li>
-
+<br>
 <% end %>
 </ul>
 <br>

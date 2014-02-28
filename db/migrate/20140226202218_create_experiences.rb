@@ -4,8 +4,8 @@ class CreateExperiences < ActiveRecord::Migration
     	t.string  :title
     	t.string  :description
     	t.float :latitude 
-		t.float :longitude
-		t.string :primary_contact_name
+		  t.float :longitude
+		  t.string :primary_contact_name
     	t.timestamps
     end
   end

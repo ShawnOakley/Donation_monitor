@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140226214145) do
   end
 
   create_table "experiences", force: true do |t|
+    t.string   "title"
+    t.string   "description"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "primary_contact_name"
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140226214145) do
   end
 
   create_table "physical_items", force: true do |t|
+    t.string   "title"
+    t.string   "description"
     t.integer  "height"
     t.integer  "width"
     t.integer  "weight"
@@ -56,6 +60,8 @@ ActiveRecord::Schema.define(version: 20140226214145) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vouchers", force: true do |t|
+    t.string   "title"
+    t.string   "description"
     t.datetime "expiration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
