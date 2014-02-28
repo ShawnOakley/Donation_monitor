@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
+gem 'ruby', "1.9.3"
 
 # Use pg as the database for Active Record
 
