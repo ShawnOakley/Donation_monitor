@@ -1,5 +1,7 @@
 <% @user = User.find_by_id(params[:user]) %>
 
+<div class="container">
+
 <h1>Welcome, <%= @user.email %></h1>
 <br>
 <%= link_to new_user_donation_path(:current_user_id => params[:user]), :class => "btn btn-default"  do %>
@@ -28,7 +30,7 @@
 	<td><%=voucher.title%></td>
 	<td><%=voucher.description%></td>
 	<td><%=voucher.created_at %></td>
-	<td><%= link_to 'VIEW', user_donation_path(voucher.id, :type => 'voucher') %></td>
+	<td><%= link_to 'VIEW', user_donation_path(voucher.id, :type => 'voucher'), :class => "btn btn-default" %></td>
 </tr>
 <% end %>
 </tbody>
@@ -56,7 +58,7 @@
 	<td><%= physical_item.title%></td>
 	<td><%= physical_item.description%></td>
 	<td><%= physical_item.created_at %></td>
-	<td><%= link_to 'VIEW', user_donation_path(physical_item.id, :type => 'physical_item') %></td>
+	<td><%= link_to 'VIEW', user_donation_path(physical_item.id, :type => 'physical_item'), :class => "btn btn-default" %></td>
 </tr>
 <% end %>
 
@@ -83,8 +85,9 @@
 	<td><%= experience.title %></td>
 	<td><%= experience.description %></td>
 	<td><%= experience.created_at %></td>
-	<td><%= link_to 'VIEW', user_donation_path(experience.id, :type => 'experience') %></td>
+	<td><%= link_to 'VIEW', user_donation_path(experience.id, :type => 'experience'), :class => "btn btn-default" %></td>
 </tr>
 <% end %>
 </tbody>
 </table>
+</div>

@@ -1,10 +1,18 @@
+
+<div class="container">
+
+<h2>Donation creation page</h2>
+
+<%= link_to 'Return to Index', user_path(user: params[:current_user_id]), :class => "btn btn-default" %>
+
 <h4> What kind of donation would you like to create? </h4>
 
+<div class="form-group">
 <form id='donation-form'  action= <%= user_donations_path %> method="post">
 
 <div>Title: <input name='donation[title]' type='text'></input></div>
 <br>
-<div>Description: <input name='donation[description]' type='txtbox'></input></div>
+<div>Description: <textarea name='donation[description]' type='txtbox'></textarea></div>
 <br>
 
 <input name='authenticity_token' value= '<%= form_authenticity_token %>' type='hidden'>
@@ -18,19 +26,19 @@
 	<option value='physical_item'>Physical Item</option>
 </select>
 
-<div id='donation-addtl-info'></div>
-
-
-<%= link_to 'Return to Index', user_path(user: params[:current_user_id]) %>
+<div class='form-group' id='donation-addtl-info'></div>
 
 
 </form>
+</div>
+
+</div>
 
 <script type='text/javascript'>
 
 var form_null_input = '';
 
-var form_submit = '<input type="submit" value="Create this donation">';
+var form_submit = '<input type="submit" value="Create this donation" class = "btn btn-default">';
 
 var form_input_expiration_date = 'Expiration Date: <input type="date" name="donation[expiration_date]"></date>';
 
