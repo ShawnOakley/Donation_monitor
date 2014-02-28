@@ -1,62 +1,90 @@
 <% @user = User.find_by_id(params[:user]) %>
 
 <h1>Welcome, <%= @user.email %></h1>
-<h3>Below are your current donations:</h3>
+<br>
+<%= link_to new_user_donation_path(:current_user_id => params[:user]), :class => "btn btn-default"  do %>
+	Add a new donation
+<% end %>
+<br>
+<h2>Below are your current donations:</h2>
 
-<h4> Voucher Donations </h4>
-<ul>
+
+<h3> Voucher Donations </h3>
+<table class="table table-bordered">
+<thead>
+	<tr>
+		<th>#</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Created at:</th>
+		<th>Link</th>
+	</tr>
+</thead>
+<tbody>
 <% @user.voucher_donations.each do |voucher| %>
 
-<li class='voucher-item-show' id='<%=voucher.id%>'>
-	<h5><%=voucher.title%></h5>
-	<text><%=voucher.description%></text>
-	<br>
-	<text>Created at: <%=voucher.created_at %></text>
-	<br>
-	<%= link_to 'View this donation', user_donation_path(voucher.id, :type => 'voucher') %>
-</li>
-<br>
+<tr class='voucher-item-show' id='<%=voucher.id%>'>
+	<td><%=voucher.id%></td>
+	<td><%=voucher.title%></td>
+	<td><%=voucher.description%></td>
+	<td><%=voucher.created_at %></td>
+	<td><%= link_to 'VIEW', user_donation_path(voucher.id, :type => 'voucher') %></td>
+</tr>
 <% end %>
-</ul>
+</tbody>
+</table>
 <br>
 
-<h4> Physical Item Donations </h4>
-<ul>
+<h3> Physical Item Donations </h3>
+<table class="table table-bordered">
+<thead>
+	<tr>
+		<th>#</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Created at:</th>
+		<th>Link</th>
+	</tr>
+</thead>
+<tbody>
 <% @items = @user.donations.select{ |donation| donation[:donatable_type] == "Physical Item" } %>
 <% @donations = @items.map{ |item| PhysicalItem.find(item[:donatable_id]) }%>
 <% @donations.each do |physical_item| %>
 
-<li class='physical_item-item-show' id='<%=physical_item.id%>'>
-	<h5><%=physical_item.title%></h5>
-	<text><%=physical_item.description%></text>
-	<br>
-	<text>Created at: <%=physical_item.created_at %></text>
-	<br>
-	<%= link_to 'View this donation', user_donation_path(physical_item.id, :type => 'physical_item') %>
-</li>
-<br>
+<tr class='physical_item-item-show' id='<%=physical_item.id%>'>
+	<td><%= physical_item.id%></td>
+	<td><%= physical_item.title%></td>
+	<td><%= physical_item.description%></td>
+	<td><%= physical_item.created_at %></td>
+	<td><%= link_to 'VIEW', user_donation_path(physical_item.id, :type => 'physical_item') %></td>
+</tr>
 <% end %>
-</ul>
+
+</tbody>
+</table>
 <br>
 
-<h4> Experience Donations </h4>
-<ul>
+<h3> Experience Donations </h3>
+<table class="table table-bordered">
+<thead>
+	<tr>
+		<th>#</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Created at:</th>
+		<th>Link</th>
+	</tr>
+</thead>
+<tbody>
 <% @user.experience_donations.each do |experience| %>
 
-<li class='experience-show' id='<%=experience.id%>'>
-	<h5><%=experience.title%></h5>
-	<text><%=experience.description%></text>
-	<br>
-	<text>Created at: <%=experience.created_at %></text>
-	<br>
-	<%= link_to 'View this donation', user_donation_path(experience.id, :type => 'experience') %>
-</li>
-<br>
+<tr class='experience-show' id='<%=experience.id%>'>
+	<td><%= experience.id %></td>
+	<td><%= experience.title %></td>
+	<td><%= experience.description %></td>
+	<td><%= experience.created_at %></td>
+	<td><%= link_to 'VIEW', user_donation_path(experience.id, :type => 'experience') %></td>
+</tr>
 <% end %>
-</ul>
-<br>
-
-
-<%= link_to new_user_donation_path(:current_user_id => params[:user])  do %>
-	Add a new donation
-<% end %>
+</tbody>
+</table>
